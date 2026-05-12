@@ -1,0 +1,68 @@
+NEON ARK — ADMIN WARDEN ONBOARDING CONSOLE
+Project #4 Sample Output
+
+1. Program starts from terminal using:
+java Program4
+
+2. Main Menu displays:
+1. Add New Warden
+2. View Wardens
+3. Update Warden
+4. Manage Certifications
+5. Deactivate / Terminate Warden
+6. Exit
+
+3. View All Wardens:
+The program loads wardens.csv as read-only seed data.
+All 20 Wardens are displayed in table format.
+Records include Active, Inactive, and Terminated statuses.
+No records are modified, added, or deleted.
+
+4. Add New Warden:
+The program prompts for Warden ID, email, first name, last name, phone, role, status, hire date, clearance level, and assigned sector.
+Required fields cannot be blank.
+Dates must use YYYY-MM-DD.
+Role, status, clearance level, and sector must match approved values.
+Duplicate Warden ID or email is blocked.
+
+5. Simulated Request Example:
+WOULD SEND:
+POST /api/wardens
+
+BRIEF DESCRIPTION:
+Create a new Warden onboarding request after front-end validation.
+
+PAYLOAD (JSON):
+{
+  "wardenId": "1021",
+  "firstName": "Faisal",
+  "lastName": "Mayar",
+  "email": "faisal.mayar@neonark.org",
+  "phone": "512-555-0121",
+  "role": "Field Warden",
+  "status": "Active",
+  "hireDate": "2026-05-12",
+  "clearanceLevel": "Level 2",
+  "assignedSector": "East Range"
+}
+
+SIMULATED RESULT:
+SUCCESS — Request accepted by the boundary console. No permanent data was saved.
+
+6. Duplicate Validation Example:
+Warden ID: 1001
+Email: amina.rahman@neonark.org
+ERROR: Duplicate identity found. Warden ID or email already exists in the read-only seed data.
+Please enter a unique Warden ID and email.
+
+7. Simulated Menu Behavior:
+Update Warden, Manage Certifications, and Deactivate / Terminate Warden menus all explain:
+- action
+- required inputs
+- validation
+- simulated HTTP request
+- JSON payload when needed
+- simulated result
+
+8. Exit:
+The program exits only when option 6 is selected from the Main Menu.
